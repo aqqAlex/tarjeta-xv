@@ -3,25 +3,99 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Prueba Supabase XV</title>
-  <!-- CDN del cliente JS de Supabase -->
+  <title>Mis 15 — María Paz</title>
+  
+  <!-- Tipografías de Google Fonts: Cormorant Garamond + Montserrat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css">
+  
+  <!-- SDK Supabase -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
-  <h1>Prueba de Conexión</h1>
 
-  <form id="form-test">
-    <input type="text" id="nombre" placeholder="Tu Nombre" required><br><br>
+  <!-- PANTALLA SOBRE (COVER) -->
+<div id="sobre-overlay" class="sobre-overlay">
+  <div class="sobre-contenido">
+    <p class="sobre-sub">Estás invitado</p>
+    <h1 class="sobre-titulo">María Paz</h1>
     
-    <label>
-      <input type="checkbox" id="asiste" checked> ¿Asiste?
-    </label><br><br>
+    <!-- Imagen o representación del sobre con el sello -->
+    <div class="sobre-icono">
+      <div class="sello">MP</div>
+    </div>
 
-    <input type="text" id="menu" placeholder="Menú especial (opcional)"><br><br>
-    <input type="text" id="cancion" placeholder="Canción (opcional)"><br><br>
+    <p class="sobre-tap">TOCÁ PARA ABRIR LA INVITACIÓN</p>
+  </div>
+</div>
 
-    <button type="submit">MANDAR PRUEBA</button>
-  </form>
+  <main class="invitation-container">
+    
+    <!-- Encabezado / Portada -->
+    <header class="header">
+      <p class="subtitle">NOS JUNTAMOS A CELEBRAR</p>
+      <h1 class="title">Mis 15 Años</h1>
+      <h2 class="name">María Paz</h2>
+      <div class="divider"></div>
+      <p class="date">07. 11 . 2026</p>
+    </header>
+
+    <!-- Sección Ubicación / Info -->
+    <section class="section info-section">
+      <h3>DÓNDE & CUÁNDO</h3>
+      <p class="info-detail"><strong>Salón Club Racing</strong></p>
+      <p class="info-detail">Alsina 46, Chivilcoy</p>
+      <p class="info-detail">21:30 HS</p>
+      <a href="https://maps.google.com" target="_blank" class="btn-secondary">VER EN GOOGLE MAPS</a>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- Formulario RSVP -->
+    <section class="section rsvp-section">
+      <h3>CONFIRMACIÓN DE ASISTENCIA</h3>
+      <p class="rsvp-intro">Por favor, confirmá tu presencia antes del 01 de Octubre.</p>
+
+      <form id="form-rsvp">
+        <div class="form-group">
+          <label for="nombre">Nombre y Apellido</label>
+          <input type="text" id="nombre" placeholder="Ej: Juan Pérez" required>
+        </div>
+
+        <div class="form-group">
+          <label for="asiste">¿Nos acompañás?</label>
+          <select id="asiste">
+            <option value="true">¡Sí, ahí estaré!</option>
+            <option value="false">No voy a poder asistir</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="menu">Restricción Alimentaria</label>
+          <input type="text" id="menu" placeholder="Ej: Celíaco, Vegetariano, Alergia (Opcional)">
+        </div>
+
+        <div class="form-group">
+          <label for="cancion">Sugerinos una canción que no puede faltar</label>
+          <input type="text" id="cancion" placeholder=" Ej: Golden Slumbers - The Beatles (Opcional)">
+        </div> 
+
+        <button type="submit" class="btn-primary">ENVIAR CONFIRMACIÓN</button>
+      </form>
+    </section>
+
+    <!-- Footer Discreto -->
+    <footer class="footer">
+      <p class="developed-by">
+        Desarrollado con <span>Supabase</span> & <span>Vercel</span> por 
+        <a href="mailto:alexaquino261200@gmail.com">Alex Aquino</a>
+      </p>
+    </footer>
+
+  </main>
 
   <script src="script.js"></script>
 </body>

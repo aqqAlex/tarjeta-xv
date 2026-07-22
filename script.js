@@ -5,34 +5,46 @@ const SUPABASE_KEY = 'sb_publishable_91CQ7N9k-O-IA5MpRHbmpA_vIp674x_';
 // Inicializar Supabase
 const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
-const form = document.getElementById('form-test');
+document.addEventListener('DOMContentLoaded', () => {
+  // 1. Interacción para ocultar el sobre de bienvenida
+  const sobre = document.getElementById('sobre-overlay');
+  if (sobre) {
+    sobre.addEventListener('click', () => {
+      sobre.classList.add('oculto');
+    });
+  }
 
-form.addEventListener('submit', async (e) => {
-  e.preventDefault();
+  // 2. Envío del formulario RSVP a Supabase
+  const form = document.getElementById('form-rsvp');
 
-  const menuVal = document.getElementById('menu').value.trim();
-  const cancionVal = document.getElementById('cancion').value.trim();
+  if (form) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
 
-  // Armamos el objeto con los nombres exactos de tus columnas
-  const datos = {
-    nombre: document.getElementById('nombre').value.trim(),
-    asiste: document.getElementById('asiste').checked,
-    menu_especial: menuVal !== '' ? menuVal : null,
-    cancion: cancionVal !== '' ? cancionVal : null
-  };
+      const menuVal = document.getElementById('menu').value.trim();
+      const cancionVal = document.getElementById('cancion').value.trim();
 
-  console.log("Enviando datos a Supabase...", datos);
+      const datos = {
+        nombre: document.getElementById('nombre').value.trim(),
+        asiste: document.getElementById('asiste').value === 'true', // Ojo: en el nuevo HTML es un <select>
+        menu_especial: menuVal !== '' ? menuVal : null,
+        cancion: cancionVal !== '' ? cancionVal : null
+      };
 
-  const { data, error } = await supabaseClient
-    .from('confirmaciones')
-    .insert([datos]);
+      console.log("Enviando asistencia...", datos);
 
-  if (error) {
-    console.error("Error al insertar:", error);
-    alert("❌ Error: " + error.message);
-  } else {
-    console.log("¡Insert exitoso!", data);
-    alert("🎉 ¡Prueba exitosa! Revisa la tabla en Supabase.");
-    form.reset();
+      const { data, error } = await supabaseClient
+        .from('confirmaciones')
+        .insert([datos]);
+
+      if (error) {
+        console.error("Error al insertar:", error);
+        alert("❌ Error al enviar la confirmación: " + error.message);
+      } else {
+        console.log("¡Insert exitoso!", data);
+        alert("🎉 ¡Gracias por confirmar tu asistencia!");
+        form.reset();
+      }
+    });
   }
 });
