@@ -6,11 +6,11 @@ const SUPABASE_KEY = 'sb_publishable_91CQ7N9k-O-IA5MpRHbmpA_vIp674x_';
 const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Interacción para ocultar el sobre de bienvenida
+  // 1. Interacción para abrir el sobre
   const sobre = document.getElementById('sobre-overlay');
   if (sobre) {
     sobre.addEventListener('click', () => {
-      sobre.classList.add('oculto');
+      sobre.classList.add('abierto');
     });
   }
 
@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const datos = {
         nombre: document.getElementById('nombre').value.trim(),
-        asiste: document.getElementById('asiste').value === 'true', // Ojo: en el nuevo HTML es un <select>
+        asiste: document.getElementById('asiste').value === 'true',
         menu_especial: menuVal !== '' ? menuVal : null,
         cancion: cancionVal !== '' ? cancionVal : null
       };

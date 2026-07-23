@@ -6,7 +6,7 @@
 }
 
 body {
-  background-color: #f9f8f6; /* Blanco cálido / Hueso editorial */
+  background-color: #f5efe6; /* Blanco cálido / Hueso editorial */
   color: #2b2b2b;            /* Texto grafito elegante */
   font-family: 'Montserrat', sans-serif;
   display: flex;
@@ -180,73 +180,174 @@ input[type="text"]:focus, select:focus {
   color: #3a4739;
 }
 
-/* Pantalla Completa del Sobre */
+/* Container principal del Overlay */
+/* Container principal del Overlay */
 .sobre-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: #f9f8f6;
-  z-index: 9999; /* Asegura que tape todo lo demás */
+  background-color: #f8eedd; /* <--- Color crema de la foto */
+  z-index: 9999;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  transition: opacity 0.8s ease, visibility 0.8s ease;
+  perspective: 1000px;
+  transition: opacity 0.8s ease 0.6s, visibility 0.8s ease 0.6s;
+  overflow: hidden; /* Para que las hojas no rompan la pantalla */
 }
 
-/* Transición suave para ocultarlo */
-.sobre-overlay.oculto {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
+/* Decoración Botánica SVG */
+.decoracion-svg {
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  z-index: 1; /* Quedan por detrás del sobre */
+  opacity: 0.8;
+  pointer-events: none; /* Para que no molesten al hacer clic */
 }
 
-.sobre-contenido {
-  text-align: center;
-  padding: 20px;
+.decoracion-svg.top-left {
+  top: -20px;
+  left: -20px;
 }
 
+.decoracion-svg.bottom-right {
+  bottom: -20px;
+  right: -20px;
+}
+
+/* El contenido del sobre pasa al frente */
+.sobre-layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  z-index: 10; /* Se asegura de pisar a las hojas */
+}
+/* Texto Encima del Sobre */
 .sobre-sub {
   font-size: 0.8rem;
-  letter-spacing: 3px;
-  color: #8c857b;
+  letter-spacing: 4px;
+  color: #c49c5e; /* <--- Tono dorado */
   text-transform: uppercase;
 }
 
-.sobre-titulo {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 3rem;
-  color: #3a4739;
-  margin-bottom: 30px;
+/* Texto de acción */
+.sobre-tap {
+  font-size: 0.7rem;
+  letter-spacing: 3px;
+  color: #c49c5e; /* <--- Tono dorado */
+  animation: titilar 2s infinite;
 }
 
-/* Sello / Sobre */
+/* El Sobre */
+.envelope-wrapper {
+  position: relative;
+  width: 320px;
+  height: 220px;
+  background-color: #eae6e1;
+  border-radius: 4px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+}
+
+.envelope {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* Solapa superior */
+.flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: 160px solid transparent;
+  border-right: 160px solid transparent;
+  border-top: 120px solid #dcd5cb;
+  transform-origin: top;
+  transition: transform 0.6s ease-in-out;
+  z-index: 3;
+}
+
+/* Cuerpo/Fondo del sobre */
+.pocket {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: 160px solid #e2dcd3;
+  border-right: 160px solid #e2dcd3;
+  border-bottom: 110px solid #d8d1c6;
+  z-index: 2;
+}
+
+/* Sello de cera XV */
 .sello {
-  width: 60px;
-  height: 60px;
-  background-color: #b89b5e; /* Color dorado/cera */
+  position: absolute;
+  top: 90px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 48px;
+  height: 48px;
+  background-color: #b89c5ea7;
   color: #fff;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto 30px auto;
   font-family: 'Cormorant Garamond', serif;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: bold;
+  z-index: 4;
   box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  transition: opacity 0.3s ease;
 }
 
+/* Nombre "María Paz" en la parte inferior del sobre */
+.sobre-nombre-sobre {
+  position: absolute;
+  bottom: 12px;
+  left: 20px; /* Ubicación exacta en la esquina inferior izquierda */
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem;
+  font-style: italic;
+  color: #b89c5ea7;
+  z-index: 5;
+  line-height: 1;
+}
+
+/* Texto de acción */
 .sobre-tap {
-  font-size: 0.75rem;
-  letter-spacing: 2px;
-  color: #666;
+  font-size: 0.7rem;
+  letter-spacing: 3px;
+  color: #888;
   animation: titilar 2s infinite;
 }
 
 @keyframes titilar {
-  0%, 100% { opacity: 0.5; }
+  0%, 100% { opacity: 0.4; }
   50% { opacity: 1; }
 }
+
+/* ANIMACIÓN DE APERTURA */
+.sobre-overlay.abierto .flap {
+  transform: rotateX(180deg);
+  z-index: 1;
+}
+
+.sobre-overlay.abierto .sello {
+  opacity: 0;
+}
+
+.sobre-overlay.abierto {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
