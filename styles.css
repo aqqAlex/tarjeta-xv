@@ -231,7 +231,8 @@ input[type="text"]:focus, select:focus {
 .sobre-sub {
   font-size: 0.8rem;
   letter-spacing: 4px;
-  color: #c49c5e; /* <--- Tono dorado */
+  color: #701c2b; /* Bordó elegante */
+  font-weight: 500;
   text-transform: uppercase;
 }
 
@@ -295,7 +296,7 @@ input[type="text"]:focus, select:focus {
   transform: translateX(-50%);
   width: 48px;
   height: 48px;
-  background-color: #b89c5ea7;
+  background-color: #701c2ba9;
   color: #fff;
   border-radius: 50%;
   display: flex;
@@ -313,11 +314,11 @@ input[type="text"]:focus, select:focus {
 .sobre-nombre-sobre {
   position: absolute;
   bottom: 12px;
-  left: 20px; /* Ubicación exacta en la esquina inferior izquierda */
+  left: 20px;
   font-family: 'Cormorant Garamond', serif;
-  font-size: 1.8rem;
+  font-size: 1.9rem;
   font-style: italic;
-  color: #b89c5ea7;
+  color: #701c2ba9; /* Bordó elegante */
   z-index: 5;
   line-height: 1;
 }
@@ -326,7 +327,7 @@ input[type="text"]:focus, select:focus {
 .sobre-tap {
   font-size: 0.7rem;
   letter-spacing: 3px;
-  color: #888;
+  color: #701c2b; /* Bordó elegante */
   animation: titilar 2s infinite;
 }
 
