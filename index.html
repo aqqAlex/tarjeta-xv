@@ -5,23 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mis 15 — María Paz</title>
   
-  <!-- Tipografías de Google Fonts: Cormorant Garamond + Montserrat -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="styles.css">
-  
-  <!-- SDK Supabase -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
 
-<!-- PANTALLA SOBRE INTERACTIVO (COVER) -->
+<!-- PANTALLA SOBRE INTERACTIVO (COVER LIMPIO) -->
 <div id="sobre-overlay" class="sobre-overlay">
-  
-  <!-- Ramita Botánica - Arriba Izquierda -->
-<svg class="decoracion-svg top-left" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <svg class="decoracion-svg top-left" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
   <g stroke="#701c2b" fill="none" stroke-linecap="round" stroke-linejoin="round">
     <path d="M-10,-10 C 40,40 80,100 130,160" stroke-width="1.5"/>
     <path d="M 20,20 C 60,0 100,20 110,60 C 80,70 40,50 20,20" stroke-width="1"/>
@@ -49,36 +44,47 @@
 </svg>
 
   <div class="sobre-layout">
-    <!-- Texto superior -->
     <p class="sobre-sub">ESTÁS INVITADO</p>
 
-    <!-- Sobre con sello y nombre -->
     <div class="envelope-wrapper">
       <div class="envelope">
         <div class="flap"></div>
         <div class="pocket"></div>
         <div class="sello">XV</div>
-        
-        <!-- Nombre "María Paz" en la esquina del sobre -->
         <h1 class="sobre-nombre-sobre">Paz</h1>
       </div>
     </div>
 
-    <!-- Indicación inferior -->
     <p class="sobre-tap">TOCÁ PARA ABRIR</p>
   </div>
 </div>
 
   <main class="invitation-container">
     
-    <!-- Encabezado / Portada -->
+    <!-- ENCABEZADO / PORTADA PANTALLA COMPLETA -->
     <header class="header">
-      <p class="subtitle">NOS JUNTAMOS A CELEBRAR</p>
-      <h1 class="title">Mis 15 Años</h1>
-      <h2 class="name">María Paz</h2>
-      <div class="divider"></div>
-      <p class="date">07. 11 . 2026</p>
-    </header>
+  
+  <!-- Rama principal arriba (horizontal) -->
+  <img src="./images/305696.png" alt="Decoración botánica superior" class="decoracion-top">
+
+  <img src="./images/305696.png" alt="Decoración botánica superior" class="decoracion-top2">
+
+
+  <!-- Detalle delicado lateral izquierdo -->
+  <img src="./images/1948358.png" alt="Decoración lateral izquierda" class="decoracion-lat lateral-izq">
+
+  <!-- Detalle delicado lateral derecho (espejado) -->
+  <img src="./images/1948358.png" alt="Decoración lateral derecha" class="decoracion-lat lateral-der">
+
+  <div class="header-container">
+    <h1 class="name-script">Paz</h1>
+    <h2 class="subtitle-xv">MIS XV</h2>
+    <div class="divider"></div>
+    <p class="date">07 . 11 . 2026</p>
+  </div>
+
+  <p class="scroll-indicador">↓ DESLIZÁ PARA VER MÁS ↓</p>
+</header>
 
     <!-- Sección Ubicación / Info -->
     <section class="section info-section">
@@ -124,7 +130,6 @@
       </form>
     </section>
 
-    <!-- Footer Discreto -->
     <footer class="footer">
       <p class="developed-by">
         Desarrollado con <span>Supabase</span> & <span>Vercel</span> por 

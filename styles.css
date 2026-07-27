@@ -6,59 +6,169 @@
 }
 
 body {
-  background-color: #f5efe6; /* Blanco cálido / Hueso editorial */
-  color: #2b2b2b;            /* Texto grafito elegante */
+  background-color: #f5efe6;
+  color: #2b2b2b;
   font-family: 'Montserrat', sans-serif;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   min-height: 100vh;
-  padding: 20px 10px;
+  padding: 0;
 }
 
 /* Tarjeta Principal Flotante */
 .invitation-container {
   background-color: #ffffff;
   width: 100%;
-  max-width: 480px; /* Tamaño ideal tipo pantalla de móvil en Desktop */
-  padding: 40px 25px;
-  border-radius: 4px;
+  max-width: 480px;
+  padding: 0;
+  border-radius: 0;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
   text-align: center;
   border: 1px solid #eae6e1;
+  min-height: 100vh;
 }
 
-/* Encabezado */
-.subtitle {
-  font-size: 0.75rem;
-  letter-spacing: 3px;
-  color: #8c857b;
-  margin-bottom: 10px;
+/* Header / Portada Pantalla Completa al abrir */
+/* Header de Portada */
+.header {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f7f9f6;
+  background-image: 
+    radial-gradient(#e2e8e0 1px, transparent 1px),
+    radial-gradient(#e2e8e0 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-position: 0 0, 20px 20px;
+  overflow: hidden; /* Evita scrolls horizontales si sobresalen las ramitas */
+  padding: 20px;
 }
 
-.title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 2.2rem;
+/* 1. Decoración Superior (Rama Horizontal) */
+/* Rama principal (Derecha) */
+.decoracion-top {
+  position: absolute;
+  top: -10px;
+  left: 75%;
+  transform: translateX(-50%) rotate(180deg); /* Apunta hacia abajo */
+  width: 85%;
+  max-width: 420px;
+  opacity: 0.85;
+  pointer-events: none;
+filter: invert(18%) sepia(85%) saturate(2920%) hue-rotate(330deg) brightness(75%) contrast(90%);
+}
+
+/* Rama secundaria espejada (Izquierda) - Más transparente */
+.decoracion-top2 {
+  position: absolute;
+  top: -10px;
+  left: 25%; /* La movemos a la mitad izquierda de la pantalla */
+  /* scaleX(-1) crea el efecto espejo horizontal + rotate(180deg) para mantenerla hacia abajo */
+  transform: translateX(-50%) scaleX(-1) rotate(180deg); 
+  width: 85%;
+  max-width: 420px;
+  opacity: 0.089; /* <--- Más transparente que la principal */
+  pointer-events: none;
+filter: invert(18%) sepia(85%) saturate(3000%) hue-rotate(330deg) brightness(85%) contrast(95%);
+}
+
+/* 2. Decoraciones Delicadas Laterales */
+.decoracion-lat {
+  position: absolute;
+  width: 110px; /* Tamaño pequeño/delicado para no molestar */
+  opacity: 0.089; /* Muy suave para dar fondo sin invadir */
+  pointer-events: none;
+  /* Mismo filtro verde salvia */
+filter: invert(18%) sepia(85%) saturate(3000%) hue-rotate(330deg) brightness(85%) contrast(95%);
+}
+
+.lateral-izq {
+  top: 45%;
+  left: -20px;
+  transform: translateY(-50%) rotate(25deg);
+}
+
+.lateral-der {
+  top: 45%;
+  right: -20px;
+  transform: translateY(-50%) scaleX(-1) rotate(25deg); /* Espejada horizontalmente */
+}
+
+/* Decoración Botánica SVG */
+.decoracion-svg {
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  z-index: 1; /* Quedan por detrás del sobre */
+  opacity: 0.8;
+  pointer-events: none; /* Para que no molesten al hacer clic */
+}
+
+.decoracion-svg.top-left {
+  top: -20px;
+  left: -20px;
+}
+
+.decoracion-svg.bottom-right {
+  bottom: -20px;
+  right: -20px;
+}
+
+.hojas-top-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 200px;
+  pointer-events: none;
+}
+
+.header-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  margin-top: 40px;
+}
+
+.name-script {
+  font-family: 'Alex Brush', cursive;
+  font-size: 10rem;
+  color: #701c2bc0;
   font-weight: 400;
-  letter-spacing: 2px;
-  color: #1a1a1a;
+  line-height: 1;
+  margin-bottom: -10px;
 }
 
-.name {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 3.2rem;
-  font-weight: 600;
-  font-style: italic;
-  color: #3a4739; /* Verde salvia oscuro suave */
-  margin-top: -5px;
-  margin-bottom: 20px;
+.subtitle-xv {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 12px;
+  color: #a3ad9e;
+  font-weight: 400;
+  margin-left: 12px;
 }
 
 .date {
-  font-size: 0.9rem;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.85rem;
   letter-spacing: 4px;
-  color: #555;
-  font-weight: 500;
+  color: #788575;
+}
+
+.scroll-indicador {
+  position: absolute;
+  bottom: 20px;
+  font-size: 0.65rem;
+  letter-spacing: 2px;
+  color: #a3ad9e;
+  animation: titilar 2s infinite;
 }
 
 /* Divisores elegantes */
@@ -66,10 +176,14 @@ body {
   width: 40px;
   height: 1px;
   background-color: #cfc8be;
-  margin: 25px auto;
+  margin: 20px auto;
 }
 
 /* Secciones */
+.section {
+  padding: 40px 25px;
+}
+
 .section h3 {
   font-family: 'Cormorant Garamond', serif;
   font-size: 1.4rem;
@@ -127,7 +241,7 @@ input[type="text"]:focus, select:focus {
 .btn-primary {
   width: 100%;
   padding: 14px;
-  background-color: #3a4739; /* Verde salvia elegante */
+  background-color: #3a4739;
   color: #ffffff;
   border: none;
   border-radius: 2px;
@@ -161,8 +275,7 @@ input[type="text"]:focus, select:focus {
 
 /* Footer */
 .footer {
-  margin-top: 35px;
-  padding-top: 15px;
+  padding: 25px;
   border-top: 1px solid #f0ebe3;
 }
 
@@ -180,67 +293,44 @@ input[type="text"]:focus, select:focus {
   color: #3a4739;
 }
 
-/* Container principal del Overlay */
-/* Container principal del Overlay */
+/* Container principal del Overlay (Sobre) */
 .sobre-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: #f8eedd; /* <--- Color crema de la foto */
+  background-color: #f8eedd; 
   z-index: 9999;
   display: flex;
   justify-content: center;
   align-items: center;
-  cursor: pointer;
   perspective: 1000px;
   transition: opacity 0.8s ease 0.6s, visibility 0.8s ease 0.6s;
-  overflow: hidden; /* Para que las hojas no rompan la pantalla */
+  overflow: hidden;
 }
 
-/* Decoración Botánica SVG */
-.decoracion-svg {
-  position: absolute;
-  width: 250px;
-  height: 250px;
-  z-index: 1; /* Quedan por detrás del sobre */
-  opacity: 0.8;
-  pointer-events: none; /* Para que no molesten al hacer clic */
-}
-
-.decoracion-svg.top-left {
-  top: -20px;
-  left: -20px;
-}
-
-.decoracion-svg.bottom-right {
-  bottom: -20px;
-  right: -20px;
-}
-
-/* El contenido del sobre pasa al frente */
 .sobre-layout {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 20px;
-  z-index: 10; /* Se asegura de pisar a las hojas */
+  z-index: 10;
+  cursor: pointer;
 }
-/* Texto Encima del Sobre */
+
 .sobre-sub {
   font-size: 0.8rem;
   letter-spacing: 4px;
-  color: #701c2b; /* Bordó elegante */
+  color: #701c2b;
   font-weight: 500;
   text-transform: uppercase;
 }
 
-/* Texto de acción */
 .sobre-tap {
   font-size: 0.7rem;
   letter-spacing: 3px;
-  color: #c49c5e; /* <--- Tono dorado */
+  color: #701c2b;
   animation: titilar 2s infinite;
 }
 
@@ -260,7 +350,6 @@ input[type="text"]:focus, select:focus {
   height: 100%;
 }
 
-/* Solapa superior */
 .flap {
   position: absolute;
   top: 0;
@@ -275,7 +364,6 @@ input[type="text"]:focus, select:focus {
   z-index: 3;
 }
 
-/* Cuerpo/Fondo del sobre */
 .pocket {
   position: absolute;
   bottom: 0;
@@ -288,7 +376,6 @@ input[type="text"]:focus, select:focus {
   z-index: 2;
 }
 
-/* Sello de cera XV */
 .sello {
   position: absolute;
   top: 90px;
@@ -310,7 +397,6 @@ input[type="text"]:focus, select:focus {
   transition: opacity 0.3s ease;
 }
 
-/* Nombre "María Paz" en la parte inferior del sobre */
 .sobre-nombre-sobre {
   position: absolute;
   bottom: 12px;
@@ -318,17 +404,9 @@ input[type="text"]:focus, select:focus {
   font-family: 'Cormorant Garamond', serif;
   font-size: 1.9rem;
   font-style: italic;
-  color: #701c2ba9; /* Bordó elegante */
+  color: #701c2ba9;
   z-index: 5;
   line-height: 1;
-}
-
-/* Texto de acción */
-.sobre-tap {
-  font-size: 0.7rem;
-  letter-spacing: 3px;
-  color: #701c2b; /* Bordó elegante */
-  animation: titilar 2s infinite;
 }
 
 @keyframes titilar {
@@ -351,4 +429,3 @@ input[type="text"]:focus, select:focus {
   visibility: hidden;
   pointer-events: none;
 }
-
