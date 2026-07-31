@@ -1,0 +1,123 @@
+/* Header / Portada Pantalla Completa al abrir */
+/* Header de Portada */
+.header {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f7f9f6;
+  background-image: 
+    radial-gradient(#e2e8e0 1px, transparent 1px),
+    radial-gradient(#e2e8e0 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-position: 0 0, 20px 20px;
+  overflow: hidden; /* Evita scrolls horizontales si sobresalen las ramitas */
+  padding: 20px;
+}
+
+/* 1. Decoración Superior (Rama Horizontal) */
+/* Rama principal (Derecha) */
+.decoracion-top {
+  position: absolute;
+  top: -10px;
+  left: 75%;
+  transform: translateX(-50%) rotate(180deg); /* Apunta hacia abajo */
+  width: 85%;
+  max-width: 420px;
+  opacity: 0.85;
+  pointer-events: none;
+filter: invert(18%) sepia(85%) saturate(2920%) hue-rotate(330deg) brightness(75%) contrast(90%);
+}
+
+/* Rama secundaria espejada (Izquierda) - Más transparente */
+.decoracion-top2 {
+  position: absolute;
+  top: -10px;
+  left: 25%; /* La movemos a la mitad izquierda de la pantalla */
+  /* scaleX(-1) crea el efecto espejo horizontal + rotate(180deg) para mantenerla hacia abajo */
+  transform: translateX(-50%) scaleX(-1) rotate(180deg); 
+  width: 85%;
+  max-width: 420px;
+  opacity: 0.089; /* <--- Más transparente que la principal */
+  pointer-events: none;
+filter: invert(18%) sepia(85%) saturate(3000%) hue-rotate(330deg) brightness(85%) contrast(95%);
+}
+
+/* 2. Decoraciones Delicadas Laterales */
+.decoracion-lat {
+  position: absolute;
+  width: 110px; /* Tamaño pequeño/delicado para no molestar */
+  opacity: 0.089; /* Muy suave para dar fondo sin invadir */
+  pointer-events: none;
+  /* Mismo filtro verde salvia */
+filter: invert(18%) sepia(85%) saturate(3000%) hue-rotate(330deg) brightness(85%) contrast(95%);
+}
+
+.hojas-top-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 200px;
+  pointer-events: none;
+}
+
+
+.lateral-izq {
+  top: 45%;
+  left: -20px;
+  transform: translateY(-50%) rotate(25deg);
+}
+
+.lateral-der {
+  top: 45%;
+  right: -20px;
+  transform: translateY(-50%) scaleX(-1) rotate(25deg); /* Espejada horizontalmente */
+}
+
+.header-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  margin-top: 40px;
+}
+
+.name-script {
+  font-family: 'Alex Brush', cursive;
+  font-size: 10rem;
+  color: #701c2bc0;
+  font-weight: 400;
+  line-height: 1;
+  margin-bottom: -10px;
+}
+
+.subtitle-xv {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 12px;
+  color: #a3ad9e;
+  font-weight: 400;
+  margin-left: 12px;
+}
+
+.date {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 4px;
+  color: #788575;
+}
+
+.scroll-indicador {
+  position: absolute;
+  bottom: 20px;
+  font-size: 0.65rem;
+  letter-spacing: 2px;
+  color: #a3ad9e;
+  animation: titilar 2s infinite;
+}
+

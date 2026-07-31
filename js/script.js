@@ -21,6 +21,10 @@ document.addEventListener('DOMContentLoaded', () => {
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
 
+      const submitBtn = form.querySelector('button[type="submit"]');
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Enviando...';
+
       const menuVal = document.getElementById('menu').value.trim();
       const cancionVal = document.getElementById('cancion').value.trim();
 
@@ -31,7 +35,6 @@ document.addEventListener('DOMContentLoaded', () => {
         cancion: cancionVal !== '' ? cancionVal : null
       };
 
-      console.log("Enviando asistencia...", datos);
 
       const { data, error } = await supabaseClient
         .from('confirmaciones')
@@ -40,11 +43,15 @@ document.addEventListener('DOMContentLoaded', () => {
       if (error) {
         console.error("Error al insertar:", error);
         alert("❌ Error al enviar la confirmación: " + error.message);
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Enviar';
       } else {
         console.log("¡Insert exitoso!", data);
         alert("🎉 ¡Gracias por confirmar tu asistencia!");
         form.reset();
       }
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Enviar';
     });
   }
 });

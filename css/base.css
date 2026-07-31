@@ -1,0 +1,43 @@
+/* Reset Básico */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #f5efe6;
+  color: #2b2b2b;
+  font-family: 'Montserrat', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding: 0;
+}
+
+/* Tarjeta Principal Flotante */
+.invitation-container {
+  background-color: #f7f9f6;
+  width: 100%;
+  max-width: 480px;
+  padding: 0;
+  border-radius: 0;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+  text-align: center;
+  border: 1px solid #eae6e1;
+  min-height: 100vh;
+}
+
+/* Divisores elegantes */
+.divider {
+  width: 40px;
+  height: 1px;
+  background-color: #cfc8be;
+  margin: 20px auto;
+}
+
+@keyframes titilar {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
