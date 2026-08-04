@@ -43,7 +43,163 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 3. Envío del Formulario a Supabase
+  // 3. BUSCADOR DE MÚSICA (iTunes API)
+  const searchInput = document.getElementById('cancion-input');
+  const hiddenInput = document.getElementById('cancion');
+  const resultsDropdown = document.getElementById('music-results');
+  const selectedCard = document.getElementById('selected-track');
+  const audioPlayer = document.getElementById('audio-preview');
+
+  let searchTimeout = null;
+  let currentPlayingBtn = null;
+  let selectedPreviewUrl = null;
+
+  if (searchInput) {
+    searchInput.addEventListener('input', (e) => {
+      const query = e.target.value.trim();
+
+      clearTimeout(searchTimeout);
+
+      if (query.length < 3) {
+        if (resultsDropdown) {
+          resultsDropdown.classList.add('oculto');
+          resultsDropdown.innerHTML = '';
+        }
+        return;
+      }
+
+      searchTimeout = setTimeout(() => {
+        buscarCancionesiTunes(query);
+      }, 300);
+    });
+  }
+
+  async function buscarCancionesiTunes(query) {
+    try {
+      const response = await fetch(`https://itunes.apple.com/search?term=${encodeURIComponent(query)}&entity=song&limit=5`);
+      const data = await response.json();
+      mostrarResultadosMusica(data.results);
+    } catch (err) {
+      console.error("Error al buscar música en iTunes:", err);
+    }
+  }
+
+  function mostrarResultadosMusica(tracks) {
+    if (!resultsDropdown) return;
+    resultsDropdown.innerHTML = '';
+
+    if (!tracks || tracks.length === 0) {
+      resultsDropdown.innerHTML = '<div class="track-item"><span class="track-item-artist">No se encontraron canciones</span></div>';
+      resultsDropdown.classList.remove('oculto');
+      return;
+    }
+
+    tracks.forEach(track => {
+      const item = document.createElement('div');
+      item.className = 'track-item';
+
+      const artworkUrl = track.artworkUrl100 || track.artworkUrl60;
+
+      item.innerHTML = `
+        <img src="${artworkUrl}" alt="${track.trackName}">
+        <div class="track-item-info">
+          <span class="track-item-title">${track.trackName}</span>
+          <span class="track-item-artist">${track.artistName}</span>
+        </div>
+        ${track.previewUrl ? `<button type="button" class="btn-play-preview" data-preview="${track.previewUrl}">▶</button>` : ''}
+      `;
+
+      item.addEventListener('click', (e) => {
+        if (e.target.classList.contains('btn-play-preview')) return;
+        seleccionarCancion(track.trackName, track.artistName, artworkUrl, track.previewUrl);
+      });
+
+      const playBtn = item.querySelector('.btn-play-preview');
+      if (playBtn) {
+        playBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          togglePreview(track.previewUrl, playBtn);
+        });
+      }
+
+      resultsDropdown.appendChild(item);
+    });
+
+    resultsDropdown.classList.remove('oculto');
+  }
+
+  function togglePreview(url, btn) {
+    if (!audioPlayer) return;
+
+    if (audioPlayer.src === url && !audioPlayer.paused) {
+      audioPlayer.pause();
+      btn.textContent = '▶';
+    } else {
+      if (currentPlayingBtn) currentPlayingBtn.textContent = '▶';
+      audioPlayer.src = url;
+      audioPlayer.play();
+      btn.textContent = '❚❚';
+      currentPlayingBtn = btn;
+    }
+  }
+
+  function seleccionarCancion(titulo, artista, portada, previewUrl) {
+    const cancionTexto = `${titulo} - ${artista}`;
+    
+    if (hiddenInput) hiddenInput.value = cancionTexto;
+    
+    const selectedTitle = document.getElementById('selected-title');
+    const selectedArtist = document.getElementById('selected-artist');
+    const selectedCover = document.getElementById('selected-cover');
+    const btnPlaySelected = document.getElementById('btn-play-selected');
+
+    if (selectedTitle) selectedTitle.textContent = titulo;
+    if (selectedArtist) selectedArtist.textContent = artista;
+    if (selectedCover) selectedCover.src = portada;
+    
+    if (btnPlaySelected) {
+      if (previewUrl) {
+        selectedPreviewUrl = previewUrl;
+        btnPlaySelected.style.display = 'flex';
+        btnPlaySelected.textContent = '▶';
+      } else {
+        selectedPreviewUrl = null;
+        btnPlaySelected.style.display = 'none';
+      }
+    }
+
+    if (selectedCard) selectedCard.classList.remove('oculto');
+    if (resultsDropdown) resultsDropdown.classList.add('oculto');
+    if (searchInput) searchInput.value = '';
+    
+    if (audioPlayer) audioPlayer.pause();
+  }
+
+  const btnRemoveTrack = document.getElementById('btn-remove-track');
+  if (btnRemoveTrack) {
+    btnRemoveTrack.addEventListener('click', () => {
+      if (hiddenInput) hiddenInput.value = '';
+      if (selectedCard) selectedCard.classList.add('oculto');
+      if (audioPlayer) audioPlayer.pause();
+    });
+  }
+
+  const btnPlaySelected = document.getElementById('btn-play-selected');
+  if (btnPlaySelected) {
+    btnPlaySelected.addEventListener('click', () => {
+      if (selectedPreviewUrl) {
+        togglePreview(selectedPreviewUrl, btnPlaySelected);
+      }
+    });
+  }
+  
+  document.addEventListener('click', (e) => {
+    if (resultsDropdown && !e.target.closest('.music-search-group')) {
+      resultsDropdown.classList.add('oculto');
+    }
+  });
+
+  // 4. Envío del Formulario a Supabase
   const form = document.getElementById('form-rsvp');
 
   if (form) {
@@ -60,7 +216,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (asisteVal) {
         const menuVal = document.getElementById('menu').value.trim();
-        const cancionVal = document.getElementById('cancion').value.trim();
+        const cancionVal = hiddenInput ? hiddenInput.value.trim() : '';
+
         datos = {
           nombre: inputNombreSi.value.trim(),
           asiste: true,
@@ -87,11 +244,9 @@ document.addEventListener('DOMContentLoaded', () => {
         submitBtn.disabled = false;
         submitBtn.textContent = 'ENVIAR';
       } else {
-        // Ocultar todo el bloque del formulario + títulos
         const rsvpContenido = document.getElementById('rsvp-contenido');
         if (rsvpContenido) rsvpContenido.classList.add('oculto');
 
-        // Mostrar tarjeta de agradecimiento
         const contenedorAgradecimiento = document.getElementById('rsvp-agradecimiento');
         const tituloAgr = document.getElementById('agradecimiento-titulo');
         const textoAgr = document.getElementById('agradecimiento-texto');
@@ -100,7 +255,6 @@ document.addEventListener('DOMContentLoaded', () => {
           tituloAgr.textContent = '¡Gracias por tu confirmación!';
           textoAgr.textContent = 'Tu respuesta ha sido registrada correctamente. ¡Nos vemos en la celebración!';
           
-          // Efecto de Fuegos artificiales
           lanzarFuegosArtificiales();
         } else {
           tituloAgr.textContent = '¡Gracias por tu respuesta!';
