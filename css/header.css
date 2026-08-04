@@ -89,7 +89,7 @@ filter: invert(18%) sepia(85%) saturate(3000%) hue-rotate(330deg) brightness(85%
 
 .name-script {
   font-family: 'Alex Brush', cursive;
-  font-size: 10rem;
+  font-size: clamp(6rem, 20vw, 10rem);
   color: #701c2bc0;
   font-weight: 400;
   line-height: 1;

@@ -53,3 +53,105 @@
   height: 100%;
   border: 0;
 }
+
+.oculto {
+  display: none !important;
+}
+
+.radio-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem;
+  letter-spacing: 2px;
+  color: #2b2b2b;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.radio-options {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 25px;
+}
+
+.radio-card {
+  flex: 1;
+  position: relative;
+  cursor: pointer;
+}
+
+.radio-card input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.radio-card .radio-label {
+  display: block;
+  padding: 14px 10px;
+  background-color: #faf9f7;
+  border: 1px solid #dcd6cd;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  letter-spacing: 1.5px;
+  color: #555;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.radio-card input[type="radio"]:checked + .radio-label {
+  background-color: #3a4739;
+  border-color: #3a4739;
+  color: #ffffff;
+  box-shadow: 0 4px 10px rgba(58, 71, 57, 0.2);
+}
+
+textarea {
+  width: 100%;
+  padding: 12px 14px;
+  font-size: 0.9rem;
+  font-family: 'Montserrat', sans-serif;
+  border: 1px solid #dcd6cd;
+  border-radius: 2px;
+  background-color: #faf9f7;
+  color: #333;
+  resize: vertical;
+}
+
+textarea:focus {
+  outline: none;
+  border-color: #3a4739;
+  background-color: #ffffff;
+}
+
+.campos-dinamicos{
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.agradecimiento-card{
+  padding: 30px 20px;
+  background-color: #faf9f7;
+  border: 1px solid #dcd6cd;
+  border-radius: 6px;
+  text-align: center;
+  animation: fadeIn 0.5s ease;
+}
+
+.agradecimiento-card h3{
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem;
+  color: #701c2b;
+  margin-bottom: 10px;
+}
+
+.agradecimiento-card p{
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.5;
+}
