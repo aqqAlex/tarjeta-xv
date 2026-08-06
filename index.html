@@ -181,6 +181,33 @@
               <audio id="audio-preview" preload="none"></audio>
             </div>
             
+            <!-- Sección Dress Code (Visible al confirmar "SÍ") -->
+            <div class="dress-code-card">
+              <!-- Imagen de Dress Code -->
+                <img src="./images/dress code.png" alt="Dress Code" class="dress-code-img">
+  
+
+                <h4 class="dress-code-title">Dress Code</h4>
+                <p class="dress-code-style">ELEGANTE SPORT</p>
+
+                <div class="evitar-colores-wrapper">
+                <p class="evitar-title">EVITAR COLORES</p>
+            </div>
+
+            <!-- Barra interactiva de colores con Gradiente -->
+            <div class="color-gradient-bar" id="gradient-bar">
+              <!-- Puntos/Marcadores de color sobre el gradiente -->
+              <span class="color-swatch" data-color="Verde Esmeralda" style="background-color: #2e5a44;"></span>
+              <span class="color-swatch" data-color="Amarillo Pastel" style="background-color: #f6e05e;"></span>
+              <span class="color-swatch" data-color="Rosa Viejo" style="background-color: #d5a6bd;"></span>
+              <span class="color-swatch" data-color="Plateado" style="background-color: #c0c0c0;"></span>
+            </div>
+
+            <!-- Texto dinámico sutil que cambia al interactuar -->
+            <p class="color-nombre-indicador" id="color-indicador">Pasá el cursor o tocá un color</p>
+          </div>
+          </div>
+
             <button type="submit" class="btn-primary">ENVIAR CONFIRMACIÓN</button>
           </div>
 
@@ -222,6 +249,11 @@
   </main>
 
   <script src="./js/countdown.js"></script>
-  <script src="./js/script.js"></script>
+  <script src="./js/confetti-effects.js"></script>
+  <script src="./js/rsvp.js"></script>
+  <script src="./js/music.js"></script>
+  <script src="./js/sobre.js"></script>
+  <script src="./js/dresscode.js"></script>
+
 </body>
 </html>

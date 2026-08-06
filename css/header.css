@@ -36,8 +36,7 @@ filter: invert(18%) sepia(85%) saturate(2920%) hue-rotate(330deg) brightness(75%
 .decoracion-top2 {
   position: absolute;
   top: -10px;
-  left: 25%; /* La movemos a la mitad izquierda de la pantalla */
-  /* scaleX(-1) crea el efecto espejo horizontal + rotate(180deg) para mantenerla hacia abajo */
+  left: 25%; 
   transform: translateX(-50%) scaleX(-1) rotate(180deg); 
   width: 85%;
   max-width: 420px;
