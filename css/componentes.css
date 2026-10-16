@@ -1,4 +1,5 @@
-input[type="text"], select {
+input[type="text"],
+select {
   width: 100%;
   padding: 12px 14px;
   font-size: 0.9rem;
@@ -10,7 +11,8 @@ input[type="text"], select {
   transition: border-color 0.3s;
 }
 
-input[type="text"]:focus, select:focus {
+input[type="text"]:focus,
+select:focus {
   outline: none;
   border-color: #3a4739;
   background-color: #ffffff;
@@ -97,7 +99,7 @@ input[type="text"]:focus, select:focus {
   padding: 8px 12px;
   gap: 10px;
   cursor: pointer;
-  border-bottom: 1px solid #f0ebe3;  
+  border-bottom: 1px solid #f0ebe3;
   transition: background-color 0.2s;
 }
 
@@ -122,7 +124,7 @@ input[type="text"]:focus, select:focus {
   overflow: hidden;
 }
 
-.track-item-title{
+.track-item-title {
   display: block;
   font-size: 0.8rem;
   font-weight: 600;
@@ -263,7 +265,7 @@ input[type="text"]:focus, select:focus {
   justify-content: space-around;
   align-items: center;
   padding: 0 5px;
-  box-shadow: inset 0 1px 3px rgba(0,0,0,0.15);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.15);
   position: relative;
 }
 
@@ -273,14 +275,15 @@ input[type="text"]:focus, select:focus {
   height: 22px;
   border-radius: 50%;
   border: 2px solid #ffffff;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.color-swatch:hover, .color-swatch.active {
+.color-swatch:hover,
+.color-swatch.active {
   transform: scale(1.3);
-  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 /* Indicador de texto dinámico */
@@ -292,4 +295,3 @@ input[type="text"]:focus, select:focus {
   min-height: 18px;
   transition: opacity 0.2s ease;
 }
-

@@ -9,12 +9,13 @@
   justify-content: center;
   align-items: center;
   background-color: #f7f9f6;
-  background-image: 
+  background-image:
     radial-gradient(#e2e8e0 1px, transparent 1px),
     radial-gradient(#e2e8e0 1px, transparent 1px);
   background-size: 40px 40px;
   background-position: 0 0, 20px 20px;
-  overflow: hidden; /* Evita scrolls horizontales si sobresalen las ramitas */
+  overflow: hidden;
+  /* Evita scrolls horizontales si sobresalen las ramitas */
   padding: 20px;
 }
 
@@ -22,37 +23,42 @@
 /* Rama principal (Derecha) */
 .decoracion-top {
   position: absolute;
-  top: -10px;
+  top: -100px;
   left: 75%;
-  transform: translateX(-50%) rotate(180deg); /* Apunta hacia abajo */
-  width: 85%;
-  max-width: 420px;
-  opacity: 0.85;
+  transform: translateX(-80%) rotate(270deg);
+  /* Apunta hacia  */
+  width: 60%;
+  max-width: 100px;
+  opacity: 0.2;
+  /* Muy suave para no distraer */
   pointer-events: none;
-filter: invert(18%) sepia(85%) saturate(2920%) hue-rotate(330deg) brightness(75%) contrast(90%);
+  filter: invert(18%) sepia(85%) saturate(2920%) hue-rotate(330deg) brightness(75%) contrast(90%);
 }
 
 /* Rama secundaria espejada (Izquierda) - Más transparente */
 .decoracion-top2 {
   position: absolute;
   top: -10px;
-  left: 25%; 
-  transform: translateX(-50%) scaleX(-1) rotate(180deg); 
-  width: 85%;
+  left: 25%;
+  transform: translateX(-50%) scaleX(-1) rotate(180deg);
+  width: 60%;
   max-width: 420px;
-  opacity: 0.089; /* <--- Más transparente que la principal */
+  opacity: 0.089;
+  /* <--- Más transparente que la principal */
   pointer-events: none;
-filter: invert(18%) sepia(85%) saturate(3000%) hue-rotate(330deg) brightness(85%) contrast(95%);
+  filter: invert(18%) sepia(85%) saturate(3000%) hue-rotate(330deg) brightness(85%) contrast(95%);
 }
 
 /* 2. Decoraciones Delicadas Laterales */
 .decoracion-lat {
   position: absolute;
-  width: 110px; /* Tamaño pequeño/delicado para no molestar */
-  opacity: 0.089; /* Muy suave para dar fondo sin invadir */
+  width: 110px;
+  /* Tamaño pequeño/delicado para no molestar */
+  opacity: 0.089;
+  /* Muy suave para dar fondo sin invadir */
   pointer-events: none;
   /* Mismo filtro verde salvia */
-filter: invert(18%) sepia(85%) saturate(3000%) hue-rotate(330deg) brightness(85%) contrast(95%);
+  filter: invert(18%) sepia(85%) saturate(3000%) hue-rotate(330deg) brightness(85%) contrast(95%);
 }
 
 .hojas-top-svg {
@@ -74,7 +80,8 @@ filter: invert(18%) sepia(85%) saturate(3000%) hue-rotate(330deg) brightness(85%
 .lateral-der {
   top: 45%;
   right: -20px;
-  transform: translateY(-50%) scaleX(-1) rotate(25deg); /* Espejada horizontalmente */
+  transform: translateY(-50%) scaleX(-1) rotate(25deg);
+  /* Espejada horizontalmente */
 }
 
 .header-container {
@@ -119,4 +126,3 @@ filter: invert(18%) sepia(85%) saturate(3000%) hue-rotate(330deg) brightness(85%
   color: #a3ad9e;
   animation: titilar 2s infinite;
 }
-

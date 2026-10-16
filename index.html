@@ -1,71 +1,75 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mis 15 — Paz</title>
-  
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
-  
+  <link
+    href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap"
+    rel="stylesheet">
+
   <link rel="stylesheet" href="css/main.css">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 </head>
+
 <body>
 
-<!-- PANTALLA SOBRE INTERACTIVO (COVER LIMPIO) -->
-<div id="sobre-overlay" class="sobre-overlay">
-  <svg class="decoracion-svg top-left" aria-hidden="true" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-    <g stroke="#701c2b" fill="none" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M-10,-10 C 40,40 80,100 130,160" stroke-width="1.5"/>
-      <path d="M 20,20 C 60,0 100,20 110,60 C 80,70 40,50 20,20" stroke-width="1"/>
-      <path d="M 60,60 C 110,40 140,60 140,100 C 110,110 80,90 60,60" stroke-width="1"/>
-      <path d="M 20,20 C 60,30 110,60 110,60" stroke-width="0.5"/>
-      <path d="M 60,60 C 100,70 140,100 140,100" stroke-width="0.5"/>
-    </g>
-    <circle cx="130" cy="30" r="3" fill="#701c2b" opacity="0.8"/>
-    <circle cx="150" cy="60" r="2" fill="#701c2b" opacity="0.7"/>
-    <circle cx="100" cy="10" r="1.5" fill="#701c2b" opacity="0.9"/>
-  </svg>
+  <!-- PANTALLA SOBRE INTERACTIVO (COVER LIMPIO) -->
+  <div id="sobre-overlay" class="sobre-overlay">
+    <svg class="decoracion-svg top-left" aria-hidden="true" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <g stroke="#701c2b" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M-10,-10 C 40,40 80,100 130,160" stroke-width="1.5" />
+        <path d="M 20,20 C 60,0 100,20 110,60 C 80,70 40,50 20,20" stroke-width="1" />
+        <path d="M 60,60 C 110,40 140,60 140,100 C 110,110 80,90 60,60" stroke-width="1" />
+        <path d="M 20,20 C 60,30 110,60 110,60" stroke-width="0.5" />
+        <path d="M 60,60 C 100,70 140,100 140,100" stroke-width="0.5" />
+      </g>
+      <circle cx="130" cy="30" r="3" fill="#701c2b" opacity="0.8" />
+      <circle cx="150" cy="60" r="2" fill="#701c2b" opacity="0.7" />
+      <circle cx="100" cy="10" r="1.5" fill="#701c2b" opacity="0.9" />
+    </svg>
 
-  <!-- Ramita Botánica - Abajo Derecha -->
-  <svg class="decoracion-svg bottom-right" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-    <g stroke="#701c2b" fill="none" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M210,210 C 160,160 120,100 70,40" stroke-width="1.5"/>
-      <path d="M 180,180 C 140,200 100,180 90,140 C 120,130 160,150 180,180" stroke-width="1"/>
-      <path d="M 140,140 C 90,160 60,140 60,100 C 90,90 120,110 140,140" stroke-width="1"/>
-      <path d="M 180,180 C 140,170 90,140 90,140" stroke-width="0.5"/>
-      <path d="M 140,140 C 100,130 60,100 60,100" stroke-width="0.5"/>
-    </g>
-    <circle cx="70" cy="170" r="3" fill="#701c2b" opacity="0.8"/>
-    <circle cx="50" cy="140" r="2" fill="#701c2b" opacity="0.7"/>
-    <circle cx="100" cy="190" r="1.5" fill="#701c2b" opacity="0.9"/>
-  </svg>
+    <!-- Ramita Botánica - Abajo Derecha -->
+    <svg class="decoracion-svg bottom-right" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <g stroke="#701c2b" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M210,210 C 160,160 120,100 70,40" stroke-width="1.5" />
+        <path d="M 180,180 C 140,200 100,180 90,140 C 120,130 160,150 180,180" stroke-width="1" />
+        <path d="M 140,140 C 90,160 60,140 60,100 C 90,90 120,110 140,140" stroke-width="1" />
+        <path d="M 180,180 C 140,170 90,140 90,140" stroke-width="0.5" />
+        <path d="M 140,140 C 100,130 60,100 60,100" stroke-width="0.5" />
+      </g>
+      <circle cx="70" cy="170" r="3" fill="#701c2b" opacity="0.8" />
+      <circle cx="50" cy="140" r="2" fill="#701c2b" opacity="0.7" />
+      <circle cx="100" cy="190" r="1.5" fill="#701c2b" opacity="0.9" />
+    </svg>
 
-  <div class="sobre-layout">
-    <p class="sobre-sub">ESTÁS INVITADO</p>
+    <div class="sobre-layout">
+      <p class="sobre-sub">ESTÁS INVITADO</p>
 
-    <div class="envelope-wrapper">
-      <div class="envelope">
-        <div class="flap"></div>
-        <div class="pocket"></div>
-        <div class="sello">XV</div>
-        <h1 class="sobre-nombre-sobre">Paz</h1>
+      <div class="envelope-wrapper">
+        <div class="envelope">
+          <div class="flap"></div>
+          <div class="pocket"></div>
+          <div class="sello">XV</div>
+          <h1 class="sobre-nombre-sobre">Paz</h1>
+        </div>
       </div>
-    </div>
 
-    <p class="sobre-tap">TOCÁ PARA ABRIR</p>
+      <p class="sobre-tap">TOCÁ PARA ABRIR</p>
+    </div>
   </div>
-</div>
 
   <main class="invitation-container">
-    
+
     <!-- ENCABEZADO / PORTADA PANTALLA COMPLETA -->
     <header class="header">
-      <img src="./images/305696.png" alt="Decoración botánica superior" class="decoracion-top">
-      <img src="./images/305696.png" alt="Decoración botánica superior" class="decoracion-top2">
+      <img src="./images/4a.png" alt="Decoración botánica superior" class="decoracion-top">
+
       <img src="./images/1948358.png" alt="Decoración lateral izquierda" class="decoracion-lat lateral-izq">
       <img src="./images/1948358.png" alt="Decoración lateral derecha" class="decoracion-lat lateral-der">
 
@@ -79,7 +83,8 @@
       <p class="scroll-indicador">↓ DESLIZÁ PARA VER MÁS ↓</p>
     </header>
 
-    <div class="countdown-container">
+
+    <div class="countdown-container reveal">
       <h3>FALTAN</h3>
       <div class="countdown">
         <div class="time-box">
@@ -101,43 +106,79 @@
       </div>
     </div>
 
+    <section class="gallery-section reveal reveal-zoom">
+      <div class="divider"></div>
+      <div class="carousel">
+        <button type="button" class="carousel-btn prev" id="carousel-prev" aria-label="Foto anterior">&#8249;</button>
+
+        <div class="carousel-track" id="carousel-track">
+          <div class="carousel-slide"><img src="./images/Paz1.jpg" alt="Foto 1 de Paz" loading="lazy"></div>
+          <div class="carousel-slide"><img src="./images/Paz2.jpg" alt="Foto 2 de Paz" loading="lazy"></div>
+          <div class="carousel-slide"><img src="./images/Paz3.jpg" alt="Foto 3 de Paz" loading="lazy"></div>
+          <div class="carousel-slide"><img src="./images/Paz4.jpg" alt="Foto 4 de Paz" loading="lazy"></div>
+          <div class="carousel-slide"><img src="./images/Paz5.jpg" alt="Foto 5 de Paz" loading="lazy"></div>
+        </div>
+
+        <button type="button" class="carousel-btn next" id="carousel-next" aria-label="Foto siguiente">&#8250;</button>
+      </div>
+
+      <div class="carousel-dots" id="carousel-dots"></div>
+    </section>
+
+    <div class="divider"></div>
+
     <!-- Sección Ubicación / Info -->
     <section class="section info-section">
-      <h3>DÓNDE & CUÁNDO</h3>
-      <p class="info-detail"><strong>Salón Club Racing</strong></p>
-      <p class="info-detail">Alsina 46, Chivilcoy</p>
-      <p class="info-detail">21:30 HS</p>
+      <h3 class="reveal"><span class="icono-seccion" aria-hidden="true">📍</span>DÓNDE & CUÁNDO</h3>
+      <p class="info-detail reveal" data-delay="100"><strong>Salón Club Racing</strong></p>
+      <p class="info-detail reveal" data-delay="180"><span class="ico" aria-hidden="true">🏛️</span>Alsina 46, Chivilcoy</p>
+      <p class="info-detail reveal" data-delay="260"><span class="ico" aria-hidden="true">📅</span>El 07/11/2026</p>
+      <p class="info-detail reveal" data-delay="340"><span class="ico" aria-hidden="true">🕤</span>21:30 HS</p>
 
-      <div class="map-container">
-        <iframe 
-          src="https://maps.google.com/maps?q=-34.892389,-60.013111&z=17&output=embed" 
-          width="100%" 
-          height="100%" 
-          style="border:0;" 
-          allowfullscreen="" 
-          loading="lazy" 
-          referrerpolicy="no-referrer-when-downgrade">
+      <div class="map-container reveal reveal-zoom">
+        <iframe src="https://maps.google.com/maps?q=-34.892389,-60.013111&z=17&output=embed" width="100%" height="100%"
+          style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
         </iframe>
       </div>
-      <a href="https://maps.app.goo.gl/ERUHxpjSf7K7HkGW7" target="_blank" rel="noopener noreferrer" class="btn-secondary">VER EN GOOGLE MAPS</a>
+      <a href="https://maps.app.goo.gl/ERUHxpjSf7K7HkGW7" target="_blank" rel="noopener noreferrer"
+        class="btn-secondary reveal">VER EN GOOGLE MAPS</a>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- Regalos / Alias -->
+    <section class="section regalos-section">
+      <h3 class="reveal"><span class="icono-seccion" aria-hidden="true">🎁</span>REGALOS</h3>
+      <p class="regalos-texto reveal" data-delay="100">Tu presencia es lo único que me importa, pero si querés podés transferirme a este alias:</p>
+      <div class="alias-card reveal reveal-zoom" data-delay="200">
+        <span class="alias-label">ALIAS</span>
+        <span class="alias-valor" id="alias-valor">camicancro.mp</span>
+        <button type="button" class="btn-copiar" id="btn-copiar-alias">COPIAR ALIAS</button>
+        <div class="alias-datos">
+          <p class="alias-datos-titulo">Datos de referencia</p>
+          <p>Titular: Camila Jenifer Cancro</p>
+          <p>CUIT: 27-37423457-4</p>
+        </div>
+      </div>
+      <p class="copiado-msg" id="copiado-msg" aria-live="polite"></p>
     </section>
 
     <div class="divider"></div>
 
     <!-- Formulario RSVP -->
     <section class="section rsvp-section">
-      <div id="rsvp-contenido">
-        <h3>CONFIRMACIÓN DE ASISTENCIA</h3>
-        <p class="rsvp-intro">Por favor, confirmá tu presencia antes del 01 de Octubre.</p>
+      <div id="rsvp-contenido" class="reveal">
+        <h3><span class="icono-seccion" aria-hidden="true">💌</span>CONFIRMACIÓN DE ASISTENCIA</h3>
+        <p class="rsvp-intro">Por favor, confirmá tu presencia antes del 31 de Octubre.</p>
 
         <form id="form-rsvp">
-          
+
           <div class="form-group rsvp-attendance-selector">
             <p class="radio-title">¿NOS ACOMPAÑÁS?</p>
             <div class="radio-options">
               <label class="radio-card">
                 <input type="radio" name="asiste" value="true" required>
-                <span class="radio-label">¡SÍ, AHÍ ESTARÉ!</span>
+                <span class="radio-label">¡SÍ, ASISTIRÉ!</span>
               </label>
               <label class="radio-card">
                 <input type="radio" name="asiste" value="false" required>
@@ -150,18 +191,19 @@
           <div id="campos-si" class="campos-dinamicos oculto">
             <div class="form-group">
               <label for="nombre-si">Nombre y Apellido</label>
-              <input type="text" id="nombre-si" placeholder="Ej: Juan Pérez">
+              <input type="text" id="nombre-si" placeholder="">
             </div>
 
             <div class="form-group">
-              <label for="menu">Restricción Alimentaria</label>
-              <input type="text" id="menu" placeholder="Ej: Celíaco, Vegetariano, Alergia (Opcional)">
+              <label for="menu">🍽️ Restricción Alimentaria</label>
+              <input type="text" id="menu" placeholder="">
             </div>
 
             <div class="form-group music-search-group">
-              <label for="cancion-input">Sugerinos una canción que no puede faltar</label>
+              <label for="cancion-input">🎵 Sugerinos una canción que no puede faltar</label>
               <div class="music-input-wrapper">
-                <input type="text" id="cancion-input" placeholder="Ej: Golden Slumbers - The Beatles" autocomplete="off">
+                <input type="text" id="cancion-input" placeholder=""
+                  autocomplete="off">
                 <input type="hidden" id="cancion" name="cancion">
               </div>
 
@@ -180,61 +222,73 @@
 
               <audio id="audio-preview" preload="none"></audio>
             </div>
-            
+
             <!-- Sección Dress Code (Visible al confirmar "SÍ") -->
             <div class="dress-code-card">
               <!-- Imagen de Dress Code -->
-                <img src="./images/dress code.png" alt="Dress Code" class="dress-code-img">
-  
+              <img src="./images/men-suit-svgrepo-com.svg" alt="Dress Code" class="dress-code-img">
 
-                <h4 class="dress-code-title">Dress Code</h4>
-                <p class="dress-code-style">ELEGANTE SPORT</p>
 
-                <div class="evitar-colores-wrapper">
-                <p class="evitar-title">EVITAR COLORES</p>
+              <h4 class="dress-code-title">Dress Code</h4>
+              <p class="dress-code-style">ELEGANTE SPORT</p>
+
+              <div class="evitar-colores-wrapper">
+                <p class="evitar-title">🚫 EVITAR COLORES</p>
+                <ul class="evitar-lista">
+                  <li class="evitar-chip">
+                    <span class="chip-dots">
+                      <span class="chip-dot chip-bordo"></span>
+                      <span class="chip-dot chip-rojo"></span>
+                      <span class="chip-dot chip-salmon"></span>
+                    </span>
+                    <span>Gama de bordó, rojo y salmón</span>
+                  </li>
+                  <li class="evitar-chip">
+                    <span class="chip-dots"><span class="chip-dot chip-brillo"></span></span>
+                    <span>Colores claros con brillos</span>
+                  </li>
+                </ul>
+              </div>
             </div>
 
-            <!-- Barra interactiva de colores con Gradiente -->
-            <div class="color-gradient-bar" id="gradient-bar">
-              <!-- Puntos/Marcadores de color sobre el gradiente -->
-              <span class="color-swatch" data-color="Verde Esmeralda" style="background-color: #2e5a44;"></span>
-              <span class="color-swatch" data-color="Amarillo Pastel" style="background-color: #f6e05e;"></span>
-              <span class="color-swatch" data-color="Rosa Viejo" style="background-color: #d5a6bd;"></span>
-              <span class="color-swatch" data-color="Plateado" style="background-color: #c0c0c0;"></span>
-            </div>
-
-            <!-- Texto dinámico sutil que cambia al interactuar -->
-            <p class="color-nombre-indicador" id="color-indicador">Pasá el cursor o tocá un color</p>
-          </div>
-          <button type="submit" class="btn-primary">ENVIAR CONFIRMACIÓN</button>
+            <button type="submit" class="btn-primary">ENVIAR CONFIRMACIÓN</button>
           </div>
 
-            
-          </div>
+      <!-- Campos para NO ASISTE (Oculto inicialmente) -->
+      <div id="campos-no" class="campos-dinamicos oculto">
+        <div class="form-group">
+          <label for="nombre-no">Nombre y Apellido</label>
+          <input type="text" id="nombre-no" placeholder="">
+        </div>
 
-          <!-- Campos para NO ASISTE (Oculto inicialmente) -->
-          <div id="campos-no" class="campos-dinamicos oculto">
-            <div class="form-group">
-              <label for="nombre-no">Nombre y Apellido</label>
-              <input type="text" id="nombre-no" placeholder="Ej: Juan Pérez">
-            </div>
+        <div class="form-group">
+          <label for="mensaje-no">Mensaje o saludo para Paz</label>
+          <textarea id="mensaje-no" rows="3"
+            placeholder=""></textarea>
+        </div>
 
-            <div class="form-group">
-              <label for="mensaje-no">Mensaje o saludo para Paz</label>
-              <textarea id="mensaje-no" rows="3" placeholder="Dejale un mensaje o buen deseo a la cumpleañera..."></textarea>
-            </div>
+        <button type="submit" class="btn-primary">ENVIAR RESPUESTA</button>
+      </div>
 
-            <button type="submit" class="btn-primary">ENVIAR RESPUESTA</button>
-          </div>
-
-        </form>
+      </form>
       </div> <!-- Cierre de #rsvp-contenido -->
 
-      <!-- Mensaje de agradecimiento post-envío (Oculto inicialmente) -->
+      <!-- Agradecimiento + redirección a WhatsApp (oculto inicialmente) -->
       <div id="rsvp-agradecimiento" class="oculto">
         <div class="agradecimiento-card">
           <h3 id="agradecimiento-titulo"></h3>
           <p id="agradecimiento-texto"></p>
+
+          <div class="redirect-box">
+            <p class="redirect-texto" aria-live="polite">
+              Serás redirigido a WhatsApp en
+              <strong id="redirect-segundos">7</strong>
+              <span id="redirect-unidad">segundos</span>
+              para continuar con la confirmación...
+            </p>
+            <div class="redirect-barra"><span id="redirect-barra"></span></div>
+            <a id="btn-whatsapp-ahora" class="btn-secondary" href="#" target="_blank" rel="noopener noreferrer">ABRIR WHATSAPP AHORA</a>
+          </div>
         </div>
       </div>
 
@@ -242,7 +296,7 @@
 
     <footer class="footer">
       <p class="developed-by">
-        Desarrollado con <span>Supabase</span> & <span>Vercel</span> por 
+        Desarrollado con <span>Supabase</span> & <span>Vercel</span> por
         <a href="mailto:alexaquino261200@gmail.com">Alex Aquino</a>
       </p>
     </footer>
@@ -254,7 +308,10 @@
   <script src="./js/rsvp.js"></script>
   <script src="./js/music.js"></script>
   <script src="./js/sobre.js"></script>
-  <script src="./js/dresscode.js"></script>
+  <script src="./js/regalos.js"></script>
+  <script src="./js/carousel.js"></script>
+  <script src="./js/reveal.js"></script>
 
 </body>
+
 </html>

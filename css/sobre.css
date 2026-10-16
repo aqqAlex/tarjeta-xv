@@ -5,7 +5,7 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: #f8eedd; 
+  background-color: #f8eedd;
   z-index: 9999;
   display: flex;
   justify-content: center;
@@ -98,7 +98,7 @@
   font-size: 1.1rem;
   font-weight: bold;
   z-index: 4;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
   transition: opacity 0.3s ease;
 }
 
@@ -119,18 +119,21 @@
   position: absolute;
   width: 250px;
   height: 250px;
-  z-index: 1; /* Quedan por detrás del sobre */
+  z-index: 1;
+  /* Quedan por detrás del sobre */
   opacity: 0.8;
-  pointer-events: none; /* Para que no molesten al hacer clic */
+  pointer-events: none;
+  /* Para que no molesten al hacer clic */
 }
 
 .decoracion-svg.top-left {
   top: -20px;
   left: -20px;
 }
-.decoracion-svg.bottom-right { 
-    bottom: -20px; 
-    right: -20px;
+
+.decoracion-svg.bottom-right {
+  bottom: -20px;
+  right: -20px;
 }
 
 /* ANIMACIÓN DE APERTURA */

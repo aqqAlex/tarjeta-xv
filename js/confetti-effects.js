@@ -1,5 +1,5 @@
 function lanzarFuegosArtificiales() {
-  if (typeof confetti !== 'function') return;
+  if (typeof confetti !== "function") return;
 
   const duration = 4000;
   const animationEnd = Date.now() + duration;
@@ -11,7 +11,15 @@ function lanzarFuegosArtificiales() {
       return clearInterval(interval);
     }
     const particleCount = 50 * (timeLeft / duration);
-    confetti({ ...defaults, particleCount, origin: { x: Math.random() * 0.2 + 0.1, y: Math.random() - 0.2 } });
-    confetti({ ...defaults, particleCount, origin: { x: Math.random() * 0.2 + 0.7, y: Math.random() - 0.2 } });
+    confetti({
+      ...defaults,
+      particleCount,
+      origin: { x: Math.random() * 0.2 + 0.1, y: Math.random() - 0.2 },
+    });
+    confetti({
+      ...defaults,
+      particleCount,
+      origin: { x: Math.random() * 0.2 + 0.7, y: Math.random() - 0.2 },
+    });
   }, 250);
 }

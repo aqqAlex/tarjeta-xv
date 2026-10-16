@@ -1,0 +1,419 @@
+/* ==========================================================
+   ELEGANTE — capa de refinamiento (cargar ÚLTIMA en main.css)
+   Mantiene la misma estructura; solo mejora tipografía,
+   color, espaciados y detalles. Vino + champagne + crema.
+   ========================================================== */
+:root {
+  --vino: #701c2b;
+  --vino-hondo: #561421;
+  --oro: #b49a6c;
+  --oro-suave: #e4d8c0;
+  --crema: #fbf8f2;
+  --papel: #f3ede2;
+  --tinta: #3a2f2f;
+  --serif: 'Cormorant Garamond', Georgia, serif;
+}
+
+body {
+  background: radial-gradient(circle at 50% 0%, #f7f1e6, #ece3d3);
+}
+
+.invitation-container {
+  background: var(--crema);
+  border: none;
+  box-shadow: 0 0 60px rgba(112, 28, 43, 0.08);
+}
+
+/* ---------- PORTADA ---------- */
+.header {
+  background: radial-gradient(ellipse at 50% 42%, #fffdf9 0%, #f8f3ea 55%, #efe7d8 100%);
+}
+
+.header::before,
+.header::after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.header::before {
+  inset: 16px;
+  border: 1px solid var(--oro);
+  opacity: .55;
+}
+
+.header::after {
+  inset: 22px;
+  border: 1px solid var(--oro);
+  opacity: .22;
+}
+
+.name-script {
+  color: var(--vino);
+  text-shadow: 0 2px 18px rgba(112, 28, 43, 0.12);
+  animation: aparecer 1.6s ease both;
+}
+
+.subtitle-xv {
+  font-family: var(--serif);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 16px;
+  margin-left: 16px;
+  color: var(--oro);
+}
+
+.date {
+  font-family: var(--serif);
+  font-size: 1.25rem;
+  letter-spacing: 7px;
+  color: var(--tinta);
+}
+
+.scroll-indicador {
+  color: var(--oro);
+  font-size: .6rem;
+  letter-spacing: 3px;
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+    filter: blur(4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+    filter: blur(0);
+  }
+}
+
+/* Divisor con rombo */
+.divider {
+  position: relative;
+  width: 110px;
+  height: 1px;
+  margin: 26px auto;
+  background: linear-gradient(90deg, transparent, var(--oro), transparent);
+}
+
+.divider::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 6px;
+  height: 6px;
+  background: var(--oro);
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+/* ---------- CUENTA REGRESIVA ---------- */
+.countdown-container {
+  padding: 50px 20px 30px;
+}
+
+.countdown-container h3 {
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  font-weight: 500;
+  font-style: italic;
+  letter-spacing: 6px;
+  color: var(--vino);
+}
+
+.countdown {
+  gap: 10px;
+}
+
+.time-box {
+  background: transparent;
+  border: none;
+  border-top: 1px solid var(--oro);
+  border-bottom: 1px solid var(--oro);
+  border-radius: 0;
+  min-width: 68px;
+  padding: 14px 6px 12px;
+}
+
+.time-box span {
+  font-size: 2.3rem;
+  font-weight: 500;
+}
+
+.time-box p {
+  color: var(--oro);
+  font-size: .58rem;
+  letter-spacing: 3px;
+}
+
+/* ---------- SECCIONES ---------- */
+.section {
+  padding: 50px 30px;
+}
+
+.section h3 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  letter-spacing: 5px;
+  color: var(--vino);
+  margin-bottom: 20px;
+}
+
+.info-detail {
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  color: var(--tinta);
+}
+
+.info-detail strong {
+  font-weight: 600;
+  font-size: 1.35rem;
+  letter-spacing: 1px;
+}
+
+.map-container {
+  height: 210px;
+  border: none;
+  border-radius: 2px;
+  box-shadow: 0 0 0 6px #fff, 0 0 0 7px var(--oro-suave), 0 18px 30px rgba(60, 40, 30, .1);
+  margin: 28px 7px 24px;
+}
+
+.map-container iframe {
+  filter: grayscale(.35) sepia(.15) contrast(.95);
+}
+
+/* ---------- BOTONES ---------- */
+.btn-primary,
+.btn-secondary {
+  border-radius: 0;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-weight: 500;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.btn-primary {
+  background: var(--vino);
+  padding: 16px;
+  margin-top: 20px;
+  box-shadow: 0 8px 20px rgba(112, 28, 43, .22);
+  transition: background .3s, transform .3s, box-shadow .3s;
+}
+
+.btn-primary:hover {
+  background: var(--vino-hondo);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(112, 28, 43, .3);
+}
+
+.btn-secondary {
+  border-color: var(--oro);
+  color: var(--vino);
+  padding: 11px 22px;
+}
+
+.btn-secondary:hover {
+  background: var(--vino);
+  border-color: var(--vino);
+}
+
+/* ---------- FORMULARIO ---------- */
+.rsvp-intro {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  font-style: italic;
+  color: #6b5d5d;
+}
+
+.form-group label {
+  color: var(--oro);
+  font-size: .68rem;
+  letter-spacing: 2px;
+}
+
+input[type="text"],
+textarea {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--oro-suave);
+  border-radius: 0;
+  padding: 10px 2px;
+  transition: border-color .3s;
+}
+
+textarea {
+  border: 1px solid var(--oro-suave);
+  padding: 12px;
+}
+
+input[type="text"]:focus,
+textarea:focus {
+  background: transparent;
+  border-color: var(--vino);
+}
+
+.radio-title {
+  font-size: 1.5rem;
+  font-style: italic;
+  letter-spacing: 3px;
+  color: var(--vino);
+}
+
+.radio-card .radio-label {
+  background: transparent;
+  border: 1px solid var(--oro-suave);
+  border-radius: 0;
+  color: var(--tinta);
+  padding: 15px 10px;
+}
+
+.radio-card:hover .radio-label {
+  border-color: var(--oro);
+}
+
+.radio-card input[type="radio"]:checked+.radio-label {
+  background: var(--vino);
+  border-color: var(--vino);
+  box-shadow: 0 8px 18px rgba(112, 28, 43, .22);
+}
+
+/* Música */
+.music-results-dropdown {
+  border: 1px solid var(--oro-suave);
+  border-radius: 0;
+  box-shadow: 0 14px 30px rgba(60, 40, 30, .12);
+}
+
+.track-item:hover {
+  background: var(--papel);
+}
+
+.selected-track-card {
+  background: #fff;
+  border: 1px solid var(--oro);
+  border-radius: 0;
+}
+
+.selected-track-card .track-title {
+  color: var(--vino);
+}
+
+/* Dress code */
+.dress-code-card {
+  background: #fff;
+  border: 1px solid var(--oro-suave);
+  border-radius: 0;
+  outline: 1px solid var(--oro-suave);
+  outline-offset: -7px;
+  padding: 30px 20px;
+}
+
+.dress-code-title {
+  color: var(--vino);
+  font-size: 2.6rem;
+}
+
+.dress-code-style {
+  color: var(--tinta);
+  letter-spacing: 5px;
+}
+
+.evitar-colores-wrapper {
+  border-top: 1px solid var(--oro-suave);
+}
+
+.evitar-title {
+  color: var(--oro);
+}
+
+.color-swatch {
+  border-color: #fff;
+}
+
+/* Agradecimiento */
+.agradecimiento-card {
+  background: #fff;
+  border: 1px solid var(--oro-suave);
+  border-radius: 0;
+  outline: 1px solid var(--oro-suave);
+  outline-offset: -7px;
+  padding: 44px 26px;
+}
+
+.agradecimiento-card h3 {
+  font-style: italic;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+.agradecimiento-card p {
+  font-family: var(--serif);
+  font-size: 1.15rem;
+}
+
+/* Footer */
+.footer {
+  border-top: 1px solid var(--oro-suave);
+  padding: 30px 25px;
+}
+
+.developed-by {
+  color: #a89f92;
+  letter-spacing: .5px;
+}
+
+/* ---------- SOBRE ---------- */
+.sobre-overlay {
+  background: radial-gradient(circle at 50% 45%, #fbf4e6, #efe1c8);
+}
+
+.sobre-sub {
+  font-family: var(--serif);
+  font-size: 1rem;
+  letter-spacing: 8px;
+  color: var(--vino);
+}
+
+.sobre-tap {
+  color: var(--oro);
+  letter-spacing: 4px;
+  font-size: .62rem;
+}
+
+.envelope-wrapper {
+  background: linear-gradient(160deg, #f4eee4, #e4dacb);
+  border-radius: 2px;
+  box-shadow: 0 30px 50px rgba(80, 55, 30, .18), 0 2px 0 rgba(255, 255, 255, .7) inset;
+}
+
+.flap {
+  filter: drop-shadow(0 6px 5px rgba(80, 55, 30, .18));
+  border-top-color: #e9e0d2;
+}
+
+.pocket {
+  border-left-color: #efe7da;
+  border-right-color: #efe7da;
+  border-bottom-color: #e2d8c7;
+}
+
+.sello {
+  background: radial-gradient(circle at 35% 30%, #a02a40, var(--vino) 55%, var(--vino-hondo));
+  box-shadow: 0 5px 12px rgba(86, 20, 33, .4), 0 0 0 3px rgba(112, 28, 43, .18);
+  font-style: italic;
+}
+
+.sobre-nombre-sobre {
+  color: var(--vino);
+  font-weight: 500;
+  font-size: 2rem;
+}
+
+.decoracion-svg {
+  opacity: .45;
+}
