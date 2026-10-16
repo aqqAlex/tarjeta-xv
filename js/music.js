@@ -182,6 +182,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
   audioPlayer?.addEventListener("ended", detenerAudio);
 
+  // Corte total del audio (lo usa rsvp.js al enviar el formulario)
+  window.detenerMusica = () => {
+    detenerAudio();
+    if (audioPlayer) {
+      audioPlayer.removeAttribute("src");
+      audioPlayer.load();
+    }
+  };
+
+  // Si se cambia de pestaña / app o se sale de la página (ej. al abrir WhatsApp), pausa
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) detenerAudio();
+  });
+  window.addEventListener("pagehide", () => window.detenerMusica());
+
   // ---------- Selección ----------
   function seleccionarCancion(track) {
     detenerAudio();

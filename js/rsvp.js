@@ -3,9 +3,7 @@ const SUPABASE_KEY = "sb_publishable_91CQ7N9k-O-IA5MpRHbmpA_vIp674x_";
 const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
 // ============ CONFIGURACIÓN DE WHATSAPP ============
-// Número con código de país, sin +, sin espacios, sin 0 ni 15.
-// Argentina (celular): 549 + código de área + número. Ej: 5492346123456
-const WHATSAPP_NUMERO = "5492346592830";
+const WHATSAPP_NUMERO = "5492346527126";
 const SEGUNDOS_REDIRECCION = 7;
 // ===================================================
 
@@ -41,6 +39,7 @@ function iniciarRedireccion(url) {
       clearInterval(intervalo);
       segundosEl.textContent = 0;
       unidadEl.textContent = "segundos";
+      window.detenerMusica?.();
       window.location.href = url;
       return;
     }
@@ -128,7 +127,10 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    // --- Éxito: mostrar agradecimiento + contador de redirección ---
+    // --- Éxito: cortar la música si estaba sonando ---
+    window.detenerMusica?.();
+
+    // --- Mostrar agradecimiento + contador de redirección ---
     document.getElementById("rsvp-contenido")?.classList.add("oculto");
 
     const tituloAgr = document.getElementById("agradecimiento-titulo");
